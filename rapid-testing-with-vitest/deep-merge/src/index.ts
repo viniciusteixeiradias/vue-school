@@ -1,6 +1,10 @@
 export const deepMerge = (a, b) => {
-  if (Array.isArray(a)) {
+  if (Array.isArray(a) && Array.isArray(b)) {
     return [...a, ...b]
+  }
+
+  if (Array.isArray(a) || Array.isArray(b) || typeof a !== typeof b) {
+    throw new Error('Error: Can not merge two different types')
   }
 
   const merged = { ...a }
