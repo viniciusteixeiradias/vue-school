@@ -77,12 +77,14 @@ test('deep merge with overlaps snapshot', () => {
       name: 'Vinicius',
       accounts: {
         github: 'unknown'
-      }
+      },
+      languages: ['javascript']
     },
     {
       accounts: {
         twitter: 'vinicius'
-      }
+      },
+      languages: ['typescript', 'vue']
     }
   )
     
@@ -94,6 +96,4 @@ test('throws errors on merging two different types', () => {
     ['foo', 'bar'],
     { foo: 'bar' }
   )).toThrowError('Error: Can not merge two different types')
-
-
 })
