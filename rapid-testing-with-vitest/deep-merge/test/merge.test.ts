@@ -71,6 +71,24 @@ test('deep merge with overlaps', () => {
   })
 })
 
+test('deep merge with overlaps snapshot', () => {
+  const merged = deepMerge(
+    {
+      name: 'Vinicius',
+      accounts: {
+        github: 'unknown'
+      }
+    },
+    {
+      accounts: {
+        twitter: 'vinicius'
+      }
+    }
+  )
+    
+  expect(merged).toMatchSnapshot()
+})
+
 test('throws errors on merging two different types', () => {
   expect(() => deepMerge(
     ['foo', 'bar'],
